@@ -1,0 +1,236 @@
+{
+  "id": "78dd3cde-706a-4b9d-9a24-073d8ca4f04b",
+  "version": "2.0",
+  "name": "WEBUI Lesson1 Task2",
+  "url": "https://grouple.co/internal/auth/login",
+  "tests": [{
+    "id": "cbb06028-058c-4e25-af88-611817c99c1b",
+    "name": "Test 1Auth",
+    "commands": [{
+      "id": "b64ceda4-e891-47c5-8daf-66e61b810116",
+      "comment": "",
+      "command": "open",
+      "target": "https://grouple.co/internal/auth/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d879741e-93e2-4f15-88b8-8e08b296550f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1455x1037",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ff599197-e5b2-4efb-aaaa-f17dfb81419d",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div[@id='mangaBox']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e2b5cd76-00f4-4b38-b195-bbfbb7c80f9d",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div[@id='mangaBox']/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "Kusemos"
+    }, {
+      "id": "904b28aa-002d-4de5-b0c4-a2b444964c83",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='mangaBox']/div/div/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "044c9d7b-5954-4ce8-aba5-034b609c70d3",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='mangaBox']/div/div/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "12TeSt468"
+    }, {
+      "id": "d18a903f-0ebb-4db6-8737-3bc3886ecaa4",
+      "comment": "",
+      "command": "click",
+      "target": "id=remember_me_yes",
+      "targets": [
+        ["id=remember_me_yes", "id"],
+        ["name=remember_me_yes", "name"],
+        ["css=#remember_me_yes", "css:finder"],
+        ["xpath=//input[@id='remember_me_yes']", "xpath:attributes"],
+        ["xpath=//div[@id='mangaBox']/div/div/form/div[3]/div/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ec467810-d1b5-45f3-8c18-ac66c9fd22ff",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-success",
+      "targets": [
+        ["css=.btn-success", "css:finder"],
+        ["xpath=//input[@value='Вход']", "xpath:attributes"],
+        ["xpath=//div[@id='mangaBox']/div/div/form/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e9236301-821a-4948-9d6b-d92654fad266",
+    "name": "Test2 create post",
+    "commands": [{
+      "id": "76f96b62-9d06-467f-b61a-36881ed6c8cf",
+      "comment": "",
+      "command": "open",
+      "target": "https://grouple.co/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0d2cba07-2371-4966-8a27-6c6bd82bb9f6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1455x1037",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5cc727a1-ed94-4bd2-9929-2ed76ff2df70",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Посты",
+      "targets": [
+        ["linkText=Посты", "linkText"],
+        ["css=.pull-right > a:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Посты')]", "xpath:link"],
+        ["xpath=//div[@id='wrap']/div[3]/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/posts/sort_hot')]", "xpath:href"],
+        ["xpath=//div[3]/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Посты')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "080090d7-3f80-48d6-8352-00bb24ea97d3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Написать пост",
+      "targets": [
+        ["linkText=Написать пост", "linkText"],
+        ["css=.add", "css:finder"],
+        ["xpath=//a[contains(text(),'Написать пост')]", "xpath:link"],
+        ["xpath=//div[@id='mangaBox']/div[3]/div[2]/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/private/post/add')]", "xpath:href"],
+        ["xpath=//div[3]/div[2]/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Написать пост')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "68aaee81-ece9-430f-a883-3c8985dca251",
+      "comment": "",
+      "command": "click",
+      "target": "id=title",
+      "targets": [
+        ["id=title", "id"],
+        ["name=title", "name"],
+        ["css=#title", "css:finder"],
+        ["xpath=//input[@id='title']", "xpath:attributes"],
+        ["xpath=//div[@id='mangaBox']/div[2]/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//form/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "13bab144-2dd2-451c-a353-1d8da6769309",
+      "comment": "",
+      "command": "type",
+      "target": "id=title",
+      "targets": [
+        ["id=title", "id"],
+        ["name=title", "name"],
+        ["css=#title", "css:finder"],
+        ["xpath=//input[@id='title']", "xpath:attributes"],
+        ["xpath=//div[@id='mangaBox']/div[2]/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//form/div/div/input", "xpath:position"]
+      ],
+      "value": "Тестировщики тестируют"
+    }, {
+      "id": "b1f0b402-12ac-4e1a-93e0-85282bd8a319",
+      "comment": "",
+      "command": "click",
+      "target": "css=.note-editable",
+      "targets": [
+        ["css=.note-editable > div", "css:finder"],
+        ["xpath=//div[@id='mangaBox']/div[2]/form/div[2]/div[3]/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8561580a-7a4d-44d9-b700-d9ee96df03e3",
+      "comment": "",
+      "command": "editContent",
+      "target": "css=.note-editable",
+      "targets": [
+        ["css=.note-editable", "css:finder"],
+        ["xpath=//div[@id='mangaBox']/div[2]/form/div[2]/div[3]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]", "xpath:position"]
+      ],
+      "value": "<div>Тестировщики учатся тестировать</div>"
+    }, {
+      "id": "3d15f7ab-da35-4fbd-b5ea-984015d97fe4",
+      "comment": "",
+      "command": "click",
+      "target": "id=publicPost",
+      "targets": [
+        ["id=publicPost", "id"],
+        ["name=publicPost", "name"],
+        ["css=#publicPost", "css:finder"],
+        ["xpath=//input[@id='publicPost']", "xpath:attributes"],
+        ["xpath=//div[@id='mangaBox']/div[2]/form/div[4]/div/div/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f66f86bb-0cd6-48d0-b723-a7f1f3a970b9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-info",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "7d0809f3-b331-4aad-8e88-c9a9baf8f511",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://grouple.co/internal/auth/login"],
+  "plugins": []
+}
