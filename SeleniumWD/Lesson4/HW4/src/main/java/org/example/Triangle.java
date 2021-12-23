@@ -5,7 +5,6 @@ public class Triangle {
     private int b;
     private int c;
 
-
     public Triangle(int a, int b, int c) {
         this.a = a;
         this.b = b;
@@ -25,6 +24,7 @@ public class Triangle {
     }
 
     public Double getArea() {
+        double s;
         try {
             dataFormat();
         } catch (DataFormatException e) {
@@ -36,9 +36,9 @@ public class Triangle {
             e.printStackTrace();
         } finally {
             double p = (a + b + c) / 2.0;
-            double s = Math.sqrt(p * (p - a) * (p - b) * (p - c));
-            return s;
+            s = Math.sqrt(p * (p - a) * (p - b) * (p - c));
         }
+        return s;
     }
 
     @Override

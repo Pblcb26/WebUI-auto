@@ -4,7 +4,6 @@ import ch.qos.logback.classic.Logger;
 import org.junit.jupiter.api.*;
 import org.slf4j.LoggerFactory;
 
-
 public class TriangleTest {
 
     private static Logger logger = (Logger) LoggerFactory.getLogger(TriangleTest.class);
@@ -36,7 +35,6 @@ public class TriangleTest {
         void triangleAreaTest() {
             Assertions.assertEquals(17.320508075688775, triangle.getArea(), "Расчет некорректен.");
         }
-
     }
 
     @Test
@@ -57,10 +55,3 @@ public class TriangleTest {
         Assertions.assertEquals("Введены некорректные значения. Введите целое положительное число.", thrown.getMessage());
     }
 }
-
-
-
-
-
-
-
