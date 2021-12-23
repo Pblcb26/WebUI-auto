@@ -17,17 +17,13 @@ public class TriangleTest {
         @Test
         @DisplayName("NotTriangleException. Фигура является треугольником")
         void isTriangleTest() {
-            NotTriangleException thrown = Assertions.assertThrows(NotTriangleException.class, triangle::isTriangle,
-                    "Ожидалось NotTriangleException исключение.");
-            Assertions.assertEquals("Данная фигура не треугольник. Введите корректные значения.", thrown.getMessage());
+            Assertions.assertDoesNotThrow(triangle::isTriangle);
         }
 
         @Test
         @DisplayName("DataFormatException. Корректные значения")
         void dataFormatTest() {
-            DataFormatException thrown = Assertions.assertThrows(DataFormatException.class, triangle::dataFormat,
-                    "Ожидалось DataFormatException исключение.");
-            Assertions.assertEquals("Введены некорректные значения. Введите целое положительное число.", thrown.getMessage());
+            Assertions.assertDoesNotThrow(triangle::dataFormat);
         }
 
         @Test
