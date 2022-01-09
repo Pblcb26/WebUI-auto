@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import java.time.Duration;
-import static org.openqa.selenium.By.linkText;
+import static org.openqa.selenium.By.*;
 
 /**
 /* Автоматизация тестирования Web UI на Java. Homework 5.
@@ -42,18 +42,17 @@ public class AppTest {
                 "Страница недоступна");
 
         Actions actions = new Actions(webDriver);
-        webDriver.findElement(By.linkText("Вход")).click();
-        actions.sendKeys(webDriver.findElement(By.id("username")), "Kusemos")
-                .sendKeys(webDriver.findElement(By.id("password")), "12TeSt468")
-                .click(webDriver.findElement(By.id("remember_me_yes")))
-                .click(webDriver.findElement(By.cssSelector(".btn-success")))
+        webDriver.findElement(xpath("//a[@href='/internal/auth/login'][@class='strong reg hidden-xs']")).click();
+        actions.sendKeys(webDriver.findElement(id("username")), "Kusemos")
+                .sendKeys(webDriver.findElement(id("password")), "12TeSt468")
+                .click(webDriver.findElement(id("remember_me_yes")))
+                .click(webDriver.findElement(cssSelector(".btn-success")))
                 .build().perform();
 
         cookieAuth = webDriver.manage().getCookieNamed("remember_me");
         System.out.println(cookieAuth);
 
-        String user = webDriver.findElement(linkText("Kusemos")).getText();
-        Assertions.assertEquals("Kusemos", user, "Не удалось авторизоваться на сайте");
+        Assertions.assertDoesNotThrow(() -> webDriver.findElement(className("dropdown-toggle")),"Не удалось авторизоваться на сайте");
     }
 
     @Nested
@@ -66,6 +65,8 @@ public class AppTest {
             Assertions.assertDoesNotThrow(() -> webDriver.get("https://grouple.co/"),
                     "Страница недоступна");
             webDriver.manage().addCookie(cookieAuth);
+            webDriver.navigate().refresh();
+            Assertions.assertDoesNotThrow(() -> webDriver.findElement(className("dropdown-toggle")),"Не удалось авторизоваться на сайте");
         }
 
         @Test
@@ -74,40 +75,35 @@ public class AppTest {
         void testAddPost() {
 
             Actions actions = new Actions(webDriver);
-            webDriver.findElement(By.linkText("Посты")).click();
+            webDriver.findElement(xpath("//div[@class]/a[@href='/posts/sort_hot']")).click();
+            webDriver.findElement(cssSelector(".add.link-icon")).click();
+            actions.sendKeys(webDriver.findElement(id("title")),"Тестировщики тестируют2")
+                    .sendKeys(webDriver.findElement(cssSelector(".note-editable")), "Тестировщики учатся тестировать2")
+                    .click(webDriver.findElement(id("publicPost")))
+                    .click(webDriver.findElement(cssSelector(".btn-info"))).build().perform();
 
-            String user = webDriver.findElement(linkText("Kusemos")).getText();
-            Assertions.assertEquals("Kusemos", user, "Не удалось авторизоваться на сайте");
+            Assertions.assertDoesNotThrow(() -> webDriver.findElement(cssSelector(".noty_message")),"Пост не сохранен");
 
-            webDriver.findElement(By.linkText("Написать пост")).click();
-            actions.sendKeys(webDriver.findElement(By.id("title")),"Тестировщики тестируют2")
-                    .sendKeys(webDriver.findElement(By.cssSelector(".note-editable")), "Тестировщики учатся тестировать2")
-                    .click(webDriver.findElement(By.id("publicPost")))
-                    .click(webDriver.findElement(By.cssSelector(".btn-info"))).build().perform();
-
-            String title = webDriver.findElement(By.id("title")).getAttribute("value");
+            String title = webDriver.findElement(id("title")).getAttribute("value");
             Assertions.assertEquals("Тестировщики тестируют2", title, "Не удалось создать пост");
         }
 
         @Test
-        //@Disabled
+        @Disabled
         @DisplayName("Тест 3. Удаление черновика поста")
         void testDelPost() {
 
-            webDriver.findElement(By.linkText("Ваш блог")).click();
-
-            String user = webDriver.findElement(linkText("Kusemos")).getText();
-            Assertions.assertEquals("Kusemos", user, "Не удалось авторизоваться на сайте");
-
-            webDriver.findElement(By.xpath("//a[@href='/private/post/edit?id=37790']")).click();
-            webDriver.findElement(By.cssSelector(".btn-danger")).click();
+            webDriver.findElement(xpath("//a[@href='/private/post/list']")).click();
+            webDriver.findElement(xpath("//a[@href='/private/post/edit?id=37790']")).click();
+            webDriver.findElement(cssSelector(".btn-danger")).click();
             webDriver.switchTo().alert().accept();
 
-            String status = webDriver.findElement(By.xpath("//a[@href='/private/post/edit?id=37790']/../../td/span[@class='label label-danger']")).getText();
+            String status = webDriver.findElement(xpath("//a[@href='/private/post/edit?id=37790']/../../td/span[@class='label label-danger']")).getText();
             Assertions.assertEquals("удалено", status, "Не удалось удалить пост");
         }
 
         @Test
+        @Disabled
         @DisplayName("Тест 4. Переход на страницу просмотра аниме")
         void testFunnyCat() {
 
@@ -118,7 +114,7 @@ public class AppTest {
             String title = webDriver.getTitle();
             Assertions.assertEquals("Аниме Я, Цусима (I'm Tsushima the Cat: Ore, Tsushima) онлайн - FindAnime", title, "Не удалось посмотреть мультик");
 
-            webDriver.findElement(By.linkText("Смотреть аниме с первой серии")).click();
+            webDriver.findElement(cssSelector(".chapter-link.btn")).click();
 
             String titleSeries1 = webDriver.getTitle();
             Assertions.assertEquals("Смотреть аниме Я, Цусима (I'm Tsushima the Cat: Ore, Tsushima) бесплатно и онлайн. Серия 1 с озвучкой или субтитрами - FindAnime", titleSeries1, "Не удалось посмотреть мультик");
